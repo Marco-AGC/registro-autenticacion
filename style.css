@@ -1,25 +1,16 @@
 * {
     box-sizing: border-box;
-    margin: 0;
-    padding: 0;
 }
 
 body {
     font-family: Arial, sans-serif;
     background: linear-gradient(to right, #d0f0ec, #f5f5f5);
+    margin: 0;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-form {
-    background-color: #ffffff;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 400px;
+    padding: 0;
 }
 
 h2 {
@@ -29,10 +20,18 @@ h2 {
     text-align: center;
 }
 
+form {
+    background-color: #ffffff;
+    padding: 40px 40px; /* más espacio horizontal */
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    max-width: 450px;
+    width: 100%;
+}
+
 label {
     display: block;
-    margin-top: 15px;
-    margin-bottom: 5px;
+    margin-top: 20px;
     font-weight: bold;
     color: #333;
 }
@@ -40,14 +39,16 @@ label {
 input, select {
     width: 100%;
     padding: 10px;
+    margin-top: 8px;
     border: 1px solid #ccc;
     border-radius: 6px;
     font-size: 15px;
-    display: block;
+    background-color: #111; /* simula el "cuadro negro" */
+    color: white;
 }
 
 button {
-    margin-top: 20px;
+    margin-top: 25px;
     padding: 12px;
     width: 100%;
     background-color: #28c76f;
@@ -65,7 +66,7 @@ button:hover {
 }
 
 #message {
-    margin-top: 15px;
+    margin-top: 20px;
     font-weight: bold;
     font-size: 17px;
     color: #444;
