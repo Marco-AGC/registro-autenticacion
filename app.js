@@ -1,7 +1,3 @@
-// Asegúrate de incluir en tu HTML:
-// <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
-// <script>emailjs.init('dqollQMgRn4kthTZ_');</script>
-
 // REGISTRO DE USUARIOS
 document.getElementById('registroForm')?.addEventListener('submit', function(event) {
     event.preventDefault();
@@ -68,7 +64,7 @@ document.getElementById('loginForm')?.addEventListener('submit', function(event)
     if (user) {
         sessionStorage.setItem('activeUser', username);
         alert("Inicio de sesión exitoso.");
-        window.location.href = 'integrantes.html';
+        window.location.href = 'pages/integrantes.html';
     } else {
         alert('❌ Usuario o contraseña incorrectos.');
     }
