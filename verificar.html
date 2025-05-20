@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Recuperar Contraseña</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+    <h2>Recuperar Contraseña</h2>
+
+    <form id="securityForm">
+        <label for="securityAnswer">Palabra de Seguridad:</label>
+        <input type="text" id="securityAnswer" required><br><br>
+        <button type="submit">Verificar</button>
+    </form>
+
+    <form id="passwordForm" style="display: none;">
+        <label for="newPassword">Nueva Contraseña:</label>
+        <input type="password" id="newPassword" required><br><br>
+
+        <label for="confirmPassword">Confirmar Contraseña:</label>
+        <input type="password" id="confirmPassword" required><br><br>
+
+        <button type="submit">Actualizar Contraseña</button>
+    </form>
+
+    <p id="message"></p>
+
+    <script src="app.js"></script>
+</body>
+</html>

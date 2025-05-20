@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Sistema de Registro y Autenticación</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script>
+      emailjs.init("dqollQMgRn4kthTZ_");
+    </script>
+</head>
+<body>
+
+    <h2>Registro</h2>
+    <form id="registroForm">
+        <label for="username">Nombre de Usuario:</label>
+        <input type="text" id="username" required><br><br>
+
+        <label for="password">Contraseña:</label>
+        <input type="password" id="password" required><br><br>
+
+        <label for="confirmPassword">Confirmar Contraseña:</label>
+        <input type="password" id="confirmPassword" required><br><br>
+
+        <label for="email">Correo Electrónico:</label>
+        <input type="email" id="email" required><br><br>
+
+        <label for="role">Rol:</label> 
+        <select id="role" required>
+            <option value="usuario">Usuario</option>
+            <option value="admin">Administrador</option>
+        </select><br><br>
+
+        <label for="securityWord">Palabra de seguridad:</label>
+        <input type="text" id="securityWord" required><br><br>
+
+        <button type="submit">Registrar</button>
+    </form>
+
+    <h2>Inicio de Sesión</h2>
+    <form id="loginForm">
+        <label for="loginUsername">Nombre de Usuario:</label>
+        <input type="text" id="loginUsername" required><br><br>
+
+        <label for="loginPassword">Contraseña:</label>
+        <input type="password" id="loginPassword" required><br><br>
+
+        <button type="submit">Iniciar Sesión</button>
+    </form>
+    <p id="loginMessage"></p>
+
+    <h2>¿Olvidaste tu Contraseña?</h2>
+    <form id="recoveryForm">
+        <label for="recoveryUsername">Nombre de Usuario:</label>
+        <input type="text" id="recoveryUsername" required><br><br>
+
+        <button type="submit">Recuperar Contraseña</button>
+    </form>
+
+    <p id="message"></p>
+
+    <!-- Modal de recuperación -->
+    <div id="modalCorreo" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p id="modalTexto"></p>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
