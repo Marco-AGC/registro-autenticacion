@@ -44,7 +44,8 @@ document.getElementById('registroForm')?.addEventListener('submit', function(eve
         .then(() => {
             alert("Usuario registrado correctamente y correo enviado.");
             this.reset();
-        }, (error) => {
+        })
+        .catch((error) => {
             alert("Usuario registrado correctamente pero no se pudo enviar el correo.");
             console.error('Error EmailJS:', error);
             this.reset();
@@ -83,7 +84,7 @@ document.getElementById('recoveryForm')?.addEventListener('submit', function(eve
         return;
     }
 
-    window.location.href = verificar.html?user=${encodeURIComponent(recoveryUsername)};
+    window.location.href = `verificar.html?user=${encodeURIComponent(recoveryUsername)}`;
 });
 
 // VERIFICACIÓN DE PALABRA DE SEGURIDAD Y CAMBIO DE CONTRASEÑA
@@ -101,6 +102,7 @@ document.getElementById('recoveryForm')?.addEventListener('submit', function(eve
 
     if (!user) {
         message.textContent = "❌ Usuario no encontrado.";
+        if(securityForm) securityForm.style.display = 'none';
         return;
     }
 
@@ -111,6 +113,7 @@ document.getElementById('recoveryForm')?.addEventListener('submit', function(eve
         if (inputWord.toLowerCase() === user.securityWord.toLowerCase()) {
             securityForm.style.display = 'none';
             passwordForm.style.display = 'block';
+            message.textContent = "";
         } else {
             alert("❌ Palabra de seguridad incorrecta.");
         }
