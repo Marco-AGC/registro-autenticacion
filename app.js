@@ -1,3 +1,6 @@
+// Inicializar EmailJS con tu User ID real
+emailjs.init("dqollQMgRn4kthTZ_");
+
 // REGISTRO DE USUARIOS
 document.getElementById('registroForm')?.addEventListener('submit', function(event) {
     event.preventDefault();
@@ -33,7 +36,7 @@ document.getElementById('registroForm')?.addEventListener('submit', function(eve
     users.push({ username, password, email, role, securityWord });
     localStorage.setItem('users', JSON.stringify(users));
 
-    // Enviar email con EmailJS
+    // Parámetros para EmailJS
     const templateParams = {
         to_name: username,
         to_email: email,
@@ -64,7 +67,7 @@ document.getElementById('loginForm')?.addEventListener('submit', function(event)
     if (user) {
         sessionStorage.setItem('activeUser', username);
         alert("Inicio de sesión exitoso.");
-        window.location.href = 'pages/integrantes.html';
+        window.location.href = 'integrantes.html';
     } else {
         alert('❌ Usuario o contraseña incorrectos.');
     }
