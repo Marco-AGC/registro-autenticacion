@@ -9,8 +9,8 @@ document.getElementById('registroForm')?.addEventListener('submit', function(eve
     const role = document.getElementById('role').value;
     const securityWord = document.getElementById('securityWord')?.value.trim();
 
-    if (!securityWord || securityWord.length < 3) {
-        alert("La palabra de seguridad debe tener al menos 3 caracteres.");
+    if (!securityWord || securityWord.length < 6) {
+        alert("La palabra de seguridad debe tener al menos 6 caracteres para ser segura.");
         return;
     }
 
@@ -89,7 +89,6 @@ document.getElementById('recoveryForm')?.addEventListener('submit', function(eve
 
 // VERIFICACIÓN DE PALABRA DE SEGURIDAD Y CAMBIO DE CONTRASEÑA
 (function initPasswordChange() {
-    // Cambiado para que funcione sin depender solo de pathname
     if (!window.location.href.includes("verificar.html")) return;
 
     const params = new URLSearchParams(window.location.search);
@@ -111,6 +110,12 @@ document.getElementById('recoveryForm')?.addEventListener('submit', function(eve
     securityForm?.addEventListener('submit', function(e) {
         e.preventDefault();
         const inputWord = document.getElementById('securityAnswer').value.trim();
+
+        if (inputWord.length < 6) {
+            alert("La palabra de seguridad no es segura, debe tener al menos 6 caracteres.");
+            return;
+        }
+
         if (inputWord.toLowerCase() === user.securityWord.toLowerCase()) {
             securityForm.style.display = 'none';
             passwordForm.style.display = 'block';
