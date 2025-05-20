@@ -89,7 +89,8 @@ document.getElementById('recoveryForm')?.addEventListener('submit', function(eve
 
 // VERIFICACIÓN DE PALABRA DE SEGURIDAD Y CAMBIO DE CONTRASEÑA
 (function initPasswordChange() {
-    if (!window.location.pathname.endsWith("verificar.html")) return;
+    // Cambiado para que funcione sin depender solo de pathname
+    if (!window.location.href.includes("verificar.html")) return;
 
     const params = new URLSearchParams(window.location.search);
     const username = params.get("user");
@@ -101,8 +102,8 @@ document.getElementById('recoveryForm')?.addEventListener('submit', function(eve
     const message = document.getElementById('message');
 
     if (!user) {
-        message.textContent = "❌ Usuario no encontrado.";
-        if(securityForm) securityForm.style.display = 'none';
+        if (message) message.textContent = "❌ Usuario no encontrado.";
+        if (securityForm) securityForm.style.display = 'none';
         return;
     }
 
@@ -113,7 +114,7 @@ document.getElementById('recoveryForm')?.addEventListener('submit', function(eve
         if (inputWord.toLowerCase() === user.securityWord.toLowerCase()) {
             securityForm.style.display = 'none';
             passwordForm.style.display = 'block';
-            message.textContent = "";
+            if (message) message.textContent = "";
         } else {
             alert("❌ Palabra de seguridad incorrecta.");
         }
